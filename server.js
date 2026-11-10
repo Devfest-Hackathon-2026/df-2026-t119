@@ -8,6 +8,7 @@ const STATIC_FILES = new Map([
   ["/", path.join(PUBLIC_ROOT, "index.html")],
   ["/index.html", path.join(PUBLIC_ROOT, "index.html")],
   ["/assets/app.js", path.join(PUBLIC_ROOT, "app.js")],
+  ["/assets/quizzes.js", path.join(ROOT, "quizzes.js")],
   ["/assets/styles.css", path.join(PUBLIC_ROOT, "styles.css")],
   ["/COPYRIGHT.md", path.join(ROOT, "COPYRIGHT.md")],
 ]);
@@ -58,6 +59,7 @@ const learningStyles = {
   visual: "図、位置関係、色分け、見やすい段階分けを活用する。",
   verbal: "短い文章、用語の意味、順を追った説明を重視する。",
   hands: "例を試す、操作や計算をする、手順を確かめる形式を重視する。",
+  auditory: "声に出して読みやすい短い文、リズムのある言い回し、耳で聞いてわかる順序立てた説明を重視する。",
 };
 const gradeDescriptions = {
   elementary: "小学生。やさしい言葉と具体例を使い、計算や説明は短い段階に分ける。",

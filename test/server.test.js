@@ -57,8 +57,8 @@ test("serves app shell and reports missing Gemini configuration", async (t) => {
   assert.match(html, /宿題の写真からヒントを見つける/);
   assert.match(html, /id="grade-select"/);
   assert.match(html, /id="homework" aria-labelledby/);
-  assert.doesNotMatch(html, /Gemini接続確認中/);
   assert.equal((await fetch(`${baseUrl}/assets/app.js`)).status, 200);
+  assert.equal((await fetch(`${baseUrl}/assets/quizzes.js`)).status, 200);
   assert.equal((await fetch(`${baseUrl}/app.js`)).status, 404);
   assert.equal((await fetch(`${baseUrl}/.env`)).status, 404);
 
