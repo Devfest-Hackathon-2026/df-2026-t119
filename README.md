@@ -1,4 +1,53 @@
-# DevFest Hackathon 2026 提出用リポジトリ
+# まなびのコンパス
+
+勉強で手が止まったときに、自分が取り組みやすい表示やヒントを見つけ、次の一問に進むための学習支援アプリです。DevFest Hackathon 2026 の提出作品です。
+
+[公開サイトを開く](https://manabi-compass-617663972656.asia-northeast1.run.app/)
+
+## 主な機能
+
+- **学び方チェック** — 短い課題を通じて、読みやすい表示や、自分が取り組みやすいヒントの形式を比べます。
+- **表示設定とAI練習** — 文字や行の間隔などを調整し、選んだ表示でGeminiが生成した練習問題に取り組めます。
+- **宿題サポート** — 手元の宿題を撮影すると、最終解答を伏せた段階ヒントを順に確認できます。自分で考えた答えの判定や、ヒントについての追加質問もできます。
+
+## ローカルで起動する
+
+Node.js 20以上（npmを含む）を使います。追加のnpmパッケージのインストールは不要です。
+
+```sh
+git clone https://github.com/Devfest-Hackathon-2026/df-2026-t119.git
+cd df-2026-t119
+npm start
+```
+
+ブラウザーで [http://127.0.0.1:3000](http://127.0.0.1:3000) を開きます。APIキーを設定する前でも、学び方チェックを試せます。
+
+### AI練習・宿題サポートの設定
+
+[Gemini APIキーの取得手順](https://ai.google.dev/gemini-api/docs/api-key)に沿ってキーを取得し、リポジトリのルートに `.env` を作成します。`your_api_key_here` を取得したキーに置き換えてください。
+
+```dotenv
+GEMINI_API_KEY=your_api_key_here
+```
+
+起動中の場合はサーバーを停止し、`npm start` で再起動します。APIキーはサーバー側で読み込みます。`.env` はGitの管理対象外です。キーはコミットしないでください。
+
+## テスト
+
+```sh
+npm test
+```
+
+テストではGemini APIの応答を模擬するため、実際のAPIキーは不要です。
+
+## ライセンス
+
+[MIT License](LICENSE)
+
+<details>
+<summary>運営からのリポジトリ案内</summary>
+
+## DevFest Hackathon 2026 提出用リポジトリ
 
   DevFest Hackathon 2026 のチームの **最終提出用** リポジトリです。提出期限までに、作品のコードと資料をこのリポジトリに置いてください。
 
@@ -36,3 +85,5 @@
   ## ライセンス
 
   [MIT License](LICENSE) です。ほかのライセンスにしたいときは、LICENSE を書き換えてください。
+
+</details>
