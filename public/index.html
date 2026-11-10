@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7f2">
+    <meta name="description" content="宿題の写真から答えを明かさないヒントを受け取り、自分で考える学習を支援します。">
+    <title>まなびのコンパス | 自分に合う学び方を見つけよう</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script src="/assets/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">メインコンテンツへ</a>
+    <header class="site-header">
+      <a class="brand" href="#home" data-home-link aria-label="まなびのコンパス ホーム">
+        <span class="brand-mark" aria-hidden="true">m</span>
+        <span>まなびのコンパス</span>
+      </a>
+      <a class="header-link" href="#homework">宿題の写真からヒント</a>
+      <a class="header-link" href="#about">このチェックについて <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="home">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> 宿題のつまずきを、一緒に整理</p>
+          <h1>答えを見る前に、<br>考えるヒントを。</h1>
+          <p class="hero-description">
+            宿題の写真から問題を読み取り、答えを明かさないヒントを順番に届けます。<br class="desktop-break">
+            学年に合わせた説明で、自分で考える一歩を支えます。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#homework">宿題の写真からヒントをもらう <span aria-hidden="true">→</span></a>
+            <button class="button button-quiet" id="start-button" type="button">学び方チェックを始める</button>
+          </div>
+          <p class="hero-note">写真の問題を読み取り、考え方を一つずつ整理できます。</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-orbit orbit-one"></div>
+          <div class="art-orbit orbit-two"></div>
+          <div class="art-card art-card-main">
+            <svg viewBox="0 0 240 180" role="img" aria-label="">
+              <path class="graph-grid" d="M37 20v128h176M37 116h176M37 84h176M37 52h176M81 20v128M125 20v128M169 20v128"/>
+              <path class="graph-axis" d="M37 20v128h176"/>
+              <path class="graph-line" d="M55 132 190 43"/>
+              <path class="graph-arrow" d="m190 43-9 2 5 7"/>
+              <circle class="graph-point" cx="81" cy="115" r="5"/>
+              <circle class="graph-point graph-point-blue" cx="37" cy="143" r="5"/>
+              <path class="rise-arrow" d="M103 106h22m-5-5 5 5-5 5"/>
+              <text x="29" y="160">0</text><text x="185" y="164">x</text><text x="24" y="27">y</text>
+            </svg>
+            <span class="art-label">見えると、わかる。</span>
+          </div>
+          <div class="art-chip chip-top"><span>✳</span> 自分らしい学び</div>
+          <div class="art-chip chip-bottom"><span>↗</span> 一歩ずつで大丈夫</div>
+          <span class="art-sparkle sparkle-one">✳</span>
+          <span class="art-sparkle sparkle-two">✦</span>
+        </div>
+        <a class="scroll-cue" href="#how"><span></span> SCROLL TO EXPLORE</a>
+      </section>
+
+      <section class="study-tools" aria-labelledby="study-tools-title">
+        <div class="study-tools-shell">
+          <div class="study-tools-heading">
+            <div>
+              <p class="eyebrow">宿題のヒントと学習ツール</p>
+              <h2 id="study-tools-title">宿題のつまずきを、一緒に整理しよう</h2>
+            </div>
+          </div>
+          <div class="grade-row">
+            <label for="grade-select">学年</label>
+            <select id="grade-select" name="grade">
+              <option value="elementary">小学生</option>
+              <option value="middle" selected>中学生</option>
+              <option value="high">高校生</option>
+            </select>
+          </div>
+          <section class="homework-helper" id="homework" aria-labelledby="homework-title">
+            <div class="homework-heading">
+              <div>
+                <p class="eyebrow">HOMEWORK PHOTO GUIDE</p>
+                <h3 id="homework-title">宿題の写真からヒントを見つける</h3>
+                <p>写真を撮るか選ぶと、答えを明かさずに考えるヒントを順番に出します。</p>
+              </div>
+            </div>
+            <form class="homework-form" id="homework-form">
+              <label for="homework-image">宿題の写真</label>
+              <input id="homework-image" name="image" type="file" accept="image/jpeg,image/png,image/webp" capture="environment" required>
+              <p class="input-hint">JPEG・PNG・WebP対応。写真は送信前に縮小されます。</p>
+              <div class="homework-preview" id="homework-preview-container" hidden>
+                <img id="homework-preview" alt="選択した宿題の写真">
+                <div>
+                  <p id="homework-image-name"></p>
+                  <button class="button button-quiet" id="clear-homework-image" type="button">写真を選び直す</button>
+                </div>
+              </div>
+              <label for="homework-question">最初に知りたいこと（任意）</label>
+              <input id="homework-question" name="question" type="text" maxlength="500" placeholder="例：この式のどこから考えればいい？">
+              <button class="button button-primary homework-submit" id="homework-submit" type="submit" disabled>写真の問題を読み取る <span aria-hidden="true">→</span></button>
+            </form>
+            <p class="prototype-note"><span aria-hidden="true">ⓘ</span> 写真と質問・会話内容はGoogle Gemini APIに送信されます。個人情報や名前が写らないようにしてください。</p>
+            <p class="lesson-error" id="homework-error" role="alert" hidden></p>
+            <section class="homework-result" id="homework-result" aria-live="polite" aria-busy="false" hidden>
+              <p class="homework-topic" id="homework-topic"></p>
+              <p class="lesson-section-label"><span>✳</span> 写真から読み取った問題</p>
+              <p class="homework-problem" id="homework-problem"></p>
+              <h4>やさしい説明</h4>
+              <p class="homework-explanation" id="homework-explanation"></p>
+              <h4>考えるヒント</h4>
+              <p class="homework-hint-progress" id="homework-hint-progress" role="status">ヒント 0 / 0</p>
+              <ol class="homework-steps" id="homework-hints"></ol>
+              <button class="button button-quiet homework-hint-button" id="homework-hint-button" type="button" disabled>次のヒントを見る</button>
+              <p class="homework-try">まずはヒントを使って、自分で解いてみましょう。</p>
+              <form class="homework-check-form" id="homework-check-form">
+                <label for="homework-answer">自分の答え</label>
+                <input id="homework-answer" name="answer" type="text" maxlength="300" autocomplete="off" placeholder="考えた答えを入力" required>
+                <button class="button button-primary" id="homework-check-submit" type="submit">答えを確認する <span aria-hidden="true">→</span></button>
+              </form>
+              <p class="homework-check-feedback" id="homework-check-feedback" role="status" hidden></p>
+              <section class="homework-chat" id="homework-chat" aria-labelledby="homework-chat-title" hidden>
+                <h4 id="homework-chat-title">この問題について質問する</h4>
+                <div class="homework-messages" id="homework-messages" role="log" aria-live="polite" aria-relevant="additions"></div>
+                <form class="homework-chat-form" id="homework-chat-form">
+                  <label class="sr-only" for="homework-followup">追加の質問</label>
+                  <input id="homework-followup" name="followup" type="text" maxlength="500" placeholder="例：どうしてその計算をするの？" required>
+                  <button class="button button-primary" id="homework-chat-submit" type="submit">質問する <span aria-hidden="true">→</span></button>
+                </form>
+                <p class="input-hint">写真と直近の会話を使って答えます。答えそのものは表示しません。</p>
+              </section>
+            </section>
+          </section>
+          <section class="learning-records" aria-labelledby="learning-records-title">
+            <div class="records-heading">
+              <div>
+                <p class="eyebrow">MY STUDY RECORD</p>
+                <h3 id="learning-records-title">この端末の学習記録</h3>
+              </div>
+              <button class="button button-quiet" id="clear-records-button" type="button">記録を消す</button>
+            </div>
+            <p id="record-summary" class="input-hint" role="status">まだ記録はありません。</p>
+            <div id="review-topics" class="review-topics"></div>
+          </section>
+          <div class="material-section" id="material">
+            <div class="material-heading">
+              <div>
+                <p class="eyebrow">PRACTICE</p>
+                <h2>テーマを選んで練習する</h2>
+                <p>問題に答えながら、少しずつ理解を深めます。</p>
+              </div>
+            </div>
+            <form class="material-form" id="material-form" hidden>
+              <p class="input-hint" id="practice-approach"></p>
+              <label for="topic-input">学びたいテーマ</label>
+              <div class="topic-input-row">
+                <input id="topic-input" name="topic" type="text" maxlength="60" value="一次関数のグラフ" placeholder="例：一次関数のグラフ" required>
+                <button class="button button-primary" id="start-lesson-button" type="submit">問題をつくる <span aria-hidden="true">→</span></button>
+              </div>
+              <div class="topic-suggestions" role="group" aria-label="学びたいテーマの例">
+                <span>たとえば</span>
+                <button type="button" data-topic="英語の過去形">英語の過去形</button>
+                <button type="button" data-topic="分数の計算">分数の計算</button>
+                <button type="button" data-topic="光合成">光合成</button>
+              </div>
+              <p class="input-hint">Geminiが練習問題を作成します。</p>
+            </form>
+            <p class="prototype-note"><span aria-hidden="true">ⓘ</span> 入力したテーマと回答はGoogle Gemini APIに送信されます。APIキーはサーバー側で管理し、ブラウザーには公開しません。</p>
+            <p class="lesson-error" id="lesson-error" role="alert" hidden></p>
+            <section class="lesson-output" id="lesson-output" aria-labelledby="lesson-title" aria-busy="false" hidden>
+              <header class="lesson-paper-head">
+                <p class="lesson-paper-kicker">LEARNING NOTE <span aria-hidden="true">✳</span> まなびのノート</p>
+                <h3 id="lesson-title"></h3>
+                <p class="lesson-paper-topic" id="lesson-paper-topic"></p>
+              </header>
+              <section class="lesson-goal">
+                <span class="lesson-section-label"><span>01</span> 今日のめあて</span>
+                <p id="lesson-goal"></p>
+              </section>
+              <p class="lesson-intro" id="lesson-intro"></p>
+              <section class="lesson-keypoints">
+                <div class="lesson-section-label"><span>02</span> 覚えておきたいこと</div>
+                <ul id="lesson-keypoints-list"></ul>
+              </section>
+              <section class="worked-example">
+                <div class="worked-example-heading">
+                  <span class="lesson-section-label"><span>03</span> 例題</span>
+                  <span class="example-caption">解き方を見てみよう</span>
+                </div>
+                <h4 id="example-prompt"></h4>
+                <ol class="example-steps" id="example-steps"></ol>
+                <p class="example-answer" id="example-answer"></p>
+              </section>
+              <div class="practice-heading">
+                <span class="lesson-section-label"><span>04</span> やってみよう</span>
+                <p>例題を参考に、練習問題に挑戦！</p>
+              </div>
+              <div class="lesson-dashboard">
+                <div><span class="dashboard-label">PROGRESS</span><strong id="lesson-count">問題 1</strong></div>
+                <div><span class="dashboard-label">CORRECT</span><strong id="correct-count">0 問</strong></div>
+                <div class="difficulty-dashboard"><span class="dashboard-label">NEXT LEVEL</span><strong id="difficulty-label">Lv.2 · 標準</strong></div>
+              </div>
+              <div class="lesson-question">
+                <div class="lesson-question-top">
+                  <span class="question-tag" id="question-tag">問題 1 · 標準</span>
+                  <span class="question-topic" id="question-topic"></span>
+                </div>
+                <h3 id="problem-title" tabindex="-1"></h3>
+                <p class="problem-prompt" id="problem-prompt"></p>
+                <div class="problem-visual" id="problem-visual" hidden></div>
+                <form id="answer-form">
+                  <fieldset class="problem-answer">
+                    <legend id="answer-legend">あなたの答え</legend>
+                    <div class="problem-choices" id="problem-choices"></div>
+                    <input class="problem-input" id="problem-input" type="text" maxlength="300" autocomplete="off" placeholder="答えを入力">
+                  </fieldset>
+                  <button class="hint-button" id="hint-button" type="button">ヒントを見る <span aria-hidden="true">＋</span></button>
+                  <p class="lesson-hint" id="lesson-hint" hidden></p>
+                  <div class="lesson-submit-row">
+                    <span class="answer-reminder">途中の考えも書いてOK</span>
+                    <button class="button button-primary" id="submit-answer-button" type="submit">答え合わせ <span aria-hidden="true">→</span></button>
+                  </div>
+                </form>
+                <div class="answer-feedback" id="answer-feedback" hidden aria-live="polite"></div>
+                <button class="button button-primary next-problem-button" id="next-problem-button" type="button" hidden>次の問題へ <span aria-hidden="true">→</span></button>
+              </div>
+              <p class="lesson-disclaimer">AIが作成・採点する問題です。大切な学習内容は教科書や先生の説明でも確認してください。</p>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="how-section" id="how">
+        <div class="section-heading">
+          <p class="eyebrow">HOW IT WORKS</p>
+          <h2>学び方を振り返り、<br class="mobile-break">自分用の教材へ。</h2>
+        </div>
+        <div class="steps">
+          <article class="step-card">
+            <span class="step-number">01</span>
+            <span class="step-icon icon-lime" aria-hidden="true">◎</span>
+            <h3>学び方を振り返る</h3>
+            <p>5つの質問に答えて、どんなときに理解しやすいかを見つけます。</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">02</span>
+            <span class="step-icon icon-peach" aria-hidden="true">⌕</span>
+            <h3>回答からヒントを見つける</h3>
+            <p>選んだ答えを振り返り、理解しやすい方法を探すためのヒントを表示します。</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">03</span>
+            <span class="step-icon icon-lavender" aria-hidden="true">✳</span>
+            <h3>教材を自分向けに</h3>
+            <p>学びたいテーマから問題を作り、回答を見ながら難易度を調整します。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="assessment-section" id="assessment" aria-labelledby="assessment-title" hidden>
+        <div class="assessment-shell">
+          <div class="assessment-heading">
+            <p class="eyebrow">YOUR LEARNING COMPASS</p>
+            <h2 id="assessment-title" tabindex="-1">いつもの学び方を振り返ろう</h2>
+            <p>ふだんの自分に近いものを選んでください。</p>
+          </div>
+          <div class="progress-row" aria-live="polite">
+            <span id="question-count">質問 1 / 5</span>
+            <span id="progress-percent">20%</span>
+          </div>
+          <div class="progress-track" role="progressbar" aria-label="質問の進み具合" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20">
+            <span id="progress-fill"></span>
+          </div>
+          <form id="question-form">
+            <fieldset class="question-card">
+              <legend id="question-text"></legend>
+              <div class="answer-list" id="answer-list"></div>
+            </fieldset>
+            <p class="form-error" id="form-error" role="alert" hidden>選択肢をひとつ選んでください。</p>
+            <div class="form-actions">
+              <button class="button button-quiet" id="back-button" type="button">← もどる</button>
+              <button class="button button-primary" id="next-button" type="submit">次の質問へ <span aria-hidden="true">→</span></button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="results-section" id="results" aria-labelledby="results-title" hidden>
+        <div class="results-shell">
+          <div class="result-intro">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR LEARNING COMPASS</p>
+            <h2 id="results-title" tabindex="-1">あなたの学び方のヒント</h2>
+            <p>回答から見つけた、学び方のヒントです。能力を決めるものではなく、いろいろな方法を試すための手がかりとして使ってください。</p>
+          </div>
+          <div class="result-grid">
+            <article class="result-card primary-result">
+              <p class="card-kicker">回答から見えたこと</p>
+              <div class="result-type-row">
+                <span class="result-type-icon" id="result-icon" aria-hidden="true">◇</span>
+                <div>
+                  <h3 id="result-title"></h3>
+                  <p id="result-subtitle"></p>
+                </div>
+              </div>
+              <p class="result-description" id="result-description"></p>
+              <div class="score-area">
+                <p class="score-heading">回答の内訳 <span>（今回の回答数）</span></p>
+                <div id="score-list" class="score-list"></div>
+              </div>
+            </article>
+            <article class="result-card reason-card">
+              <p class="card-kicker">回答を振り返る</p>
+              <h3>選んだ答えの中に</h3>
+              <ul id="reason-list" class="reason-list"></ul>
+            </article>
+          </div>
+          <article class="support-card">
+            <div class="support-icon" aria-hidden="true">☀</div>
+            <div>
+              <p class="card-kicker">ひとりで抱えなくて大丈夫</p>
+              <h3>周りの人に伝えるヒント</h3>
+              <p id="support-copy"></p>
+            </div>
+          </article>
+          <div class="result-actions">
+            <button class="button button-quiet" id="restart-button" type="button">質問に答え直す</button>
+            <button class="button button-secondary" id="print-button" type="button">結果を印刷する <span aria-hidden="true">↗</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section" id="about">
+        <div class="about-icon" aria-hidden="true">i</div>
+        <div>
+          <p class="eyebrow">A NOTE ABOUT THIS CHECK-IN</p>
+          <h2>学び方を試してみる、<br class="mobile-break">きっかけとして。</h2>
+          <p>このチェックは、5つの質問への回答から学び方の好みを振り返るためのものです。表示する内容はひとつの提案であり、学び方を分類したり、能力や成績を決めたりするものではありません。いろいろな方法を試し、自分に合うものを見つけるきっかけとして使ってください。</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#home" data-home-link><span class="brand-mark" aria-hidden="true">m</span>まなびのコンパス</a>
+      <p>自分のペースで、自分らしく。</p>
+      <a class="copyright-link" href="COPYRIGHT.md">素材・著作権について</a>
+    </footer>
+  </body>
+</html>
